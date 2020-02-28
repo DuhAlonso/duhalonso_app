@@ -1,32 +1,27 @@
-import 'package:duhalonso/pages/contact_page.dart';
 import 'package:duhalonso/widgets/flatbuttons_home.dart';
 import 'package:flutter/material.dart';
 import 'dart:html' as html;
 
-class HomePage extends StatefulWidget {
+class ContactPage extends StatefulWidget {
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _ContactPageState createState() => _ContactPageState();
 }
 
-class _HomePageState extends State<HomePage> {
-
-  link(){
-    html.window.location.href = "https://github.com/DuhAlonso?tab=repositories";
+  linkedInLink(){
+    html.window.location.href = "https://www.linkedin.com/in/duhalonso";
+  }
+  telegramLink(){
+    html.window.location.href = "https://t.me/duhalonso";
   }
 
-  Future contactPageLink(){
-    return Navigator.of(context).push(
-      MaterialPageRoute(builder: (context) => ContactPage())
-    );
-  }
-
+class _ContactPageState extends State<ContactPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       //backgroundColor: Colors.black,
       appBar: AppBar(
-        title: Text("EM CONSTRUÇÃO"),
+        title: Text("Contato"),
         centerTitle: true,
       ),
       body: Stack(
@@ -35,7 +30,7 @@ class _HomePageState extends State<HomePage> {
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/back.png'),
+                image: AssetImage('assets/contact_back.jpg'),
                 fit: BoxFit.cover,
                 
               )
@@ -47,8 +42,7 @@ class _HomePageState extends State<HomePage> {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text('Seja bem-vindo(a) ao meu portfólio!',
-              textAlign: TextAlign.center,
+              Text('Gostou do meu trabalho?',
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 40,
@@ -56,8 +50,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               SizedBox(height: 10),
-              Text('Tenha paciência, ainda está em construção.',
-              textAlign: TextAlign.center,
+              Text('Fique à vontade para entrar em contato.',
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 25,
@@ -69,8 +62,8 @@ class _HomePageState extends State<HomePage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    FlatButtonHome(title: 'CONTATO', onClick: contactPageLink),
-                    FlatButtonHome(title: 'REPOSITÓRIOS', onClick: link),
+                    FlatButtonHome(title: 'LinkedIn', onClick: linkedInLink),
+                    FlatButtonHome(title: 'Telegram', onClick: telegramLink),
                   ],
                 ),
               )
